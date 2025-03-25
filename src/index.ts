@@ -1,4 +1,5 @@
-function add(numbers: string): number {
+// tutorial from: https://www.testim.io/blog/typescript-unit-testing-101/
+export function add(numbers: string): number {
     let integers = numbers.split(',').map(x => parseInt(x));
     let negatives = integers.filter(x => x < 0);
 
