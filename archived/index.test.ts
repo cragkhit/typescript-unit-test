@@ -1,5 +1,5 @@
 // https://www.testim.io/blog/typescript-unit-testing-101/
-import { add } from '../src/index';
+import { add } from './index';
 
 describe('testing the add method', () => {
     test('should return 0 for an empty string', () => {
@@ -18,8 +18,13 @@ describe('testing the add method', () => {
         expect(add('1,2,3,4,5')).toBe(15);
     });
 
+    test('should ignore numbers greater than 1000', () => {
+        expect(add('2,1001,3')).toBe(5);
+    });
+
     test('should throw an error for negative numbers', () => {
-        expect(add('-1,-2,-3,-4,-5')).toBe(-15);
+        expect(() => add('1,-2,3,-4')).toThrow(RangeError);
+        expect(() => add('1,-2,3,-4')).toThrow('Negatives are not allowed: -2, -4');
     });
 
     test('should handle numbers with leading and trailing spaces', () => {
