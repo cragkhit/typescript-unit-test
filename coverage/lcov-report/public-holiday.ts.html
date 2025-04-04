@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">30% </span>
+                <span class="strong">90% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>3/10</span>
+                <span class='fraction'>9/10</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">40% </span>
+                <span class="strong">80% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>2/5</span>
+                <span class='fraction'>4/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/2</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">33.33% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>3/9</span>
+                <span class='fraction'>9/9</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -81,41 +81,44 @@
 <a name='L16'></a><a href='#L16'>16</a>
 <a name='L17'></a><a href='#L17'>17</a>
 <a name='L18'></a><a href='#L18'>18</a>
-<a name='L19'></a><a href='#L19'>19</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<a name='L19'></a><a href='#L19'>19</a>
+<a name='L20'></a><a href='#L20'>20</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">export function isWeekend(day: number): boolean {
     return day === 0 || day === 6;
   }
 &nbsp;
-export function <span class="fstat-no" title="function not covered" >isWorkingDay(</span>year: number, month: number, day: number): boolean {
-<span class="cstat-no" title="statement not covered" >    <span class="missing-if-branch" title="if path not taken" >I</span>if (this.isWeekend(day)) <span class="cstat-no" title="statement not covered" >return false;</span></span>
+export function isWorkingDay(year: number, month: number, day: number): boolean {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (isWeekend(day)) <span class="cstat-no" title="statement not covered" >return false;</span>
     // List of public holidays (example: New Year's Day, Songkran, etc.)
-    const publicHolidays: { [key: string]: boolean } = <span class="cstat-no" title="statement not covered" >{</span>
+    const publicHolidays: { [key: string]: boolean } = {
         [`${year}-1-1`]: true, // New Year's Day
         [`${year}-4-13`]: true, // Songkran Day
+        [`${year}-12-5`]: true, // Father's Day
         // Add more holidays as needed
     };
-    const dateString = <span class="cstat-no" title="statement not covered" >`${year}-${String(month)}-${String(day)}`;</span>
-<span class="cstat-no" title="statement not covered" >    if (publicHolidays[dateString])</span>
-<span class="cstat-no" title="statement not covered" >        return false;</span>
+    const dateString = `${year}-${String(month)}-${String(day)}`;
+    if (publicHolidays[dateString])
+        return false;
     else 
-<span class="cstat-no" title="statement not covered" >        return true;</span>
+        return true;
 }
   </pre></td></tr></table></pre>
 
@@ -124,7 +127,7 @@ export function <span class="fstat-no" title="function not covered" >isWorkingDa
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-04-03T01:04:19.792Z
+                at 2025-04-03T07:12:54.206Z
             </div>
         <script src="prettify.js"></script>
         <script>
